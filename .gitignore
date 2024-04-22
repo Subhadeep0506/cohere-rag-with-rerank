@@ -1,0 +1,7 @@
+.venv
+**/__pycache__
+**/config.yaml
+**/config.py
+data
+deeplake_vstore
+memory.db
