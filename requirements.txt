@@ -18,6 +18,7 @@ cohere==5.2.6
 dataclasses-json==0.6.4
 deeplake==3.9.0
 dill==0.3.8
+fastapi==0.110.2
 fastavro==1.9.4
 filelock==3.13.4
 frozenlist==1.4.1
@@ -96,6 +97,7 @@ typing-inspect==0.9.0
 typing_extensions==4.11.0
 tzdata==2024.1
 urllib3==2.2.1
+uvicorn==0.29.0
 watchdog==4.0.0
 wrapt==1.16.0
 yarl==1.9.4
