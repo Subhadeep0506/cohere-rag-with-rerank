@@ -2,8 +2,10 @@ import time
 import src.constants as constant
 import src.config as cfg
 
+from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
 from langchain.vectorstores.deeplake import DeepLake
+from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain_cohere import ChatCohere
 from langchain.memory.chat_message_histories.sql import SQLChatMessageHistory
 from langchain.memory.chat_message_histories.mongodb import MongoDBChatMessageHistory
@@ -31,6 +33,9 @@ class QnA:
         )
         self.text_vectorstore = None
         self.text_retriever = None
+
+        self.mongo_client = MongoClient(cfg.MONGO_URI)
+        self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][cfg.VECTORSTORE_COLLECTION_NAME]
 
     def ask_question(
         self,
@@ -80,13 +85,20 @@ class QnA:
         return result
 
     def init_vectorstore(self):
-        self.text_vectorstore = DeepLake(
-            dataset_path=cfg.DEEPLAKE_VECTORSTORE,
+        # self.text_vectorstore = DeepLake(
+        #     dataset_path=cfg.DEEPLAKE_VECTORSTORE,
+        #     embedding=self.embeddings,
+        #     verbose=False,
+        #     read_only=True,
+        #     num_workers=4,
+        # )
+
+        self.text_vectorstore = MongoDBAtlasVectorSearch(
+            collection=self.MONGODB_COLLECTION,
             embedding=self.embeddings,
-            verbose=False,
-            read_only=True,
-            num_workers=4,
+            index_name="vector_index"
         )
+
         self.text_retriever = ContextualCompressionRetriever(
             base_compressor=self.cohere_rerank,
             base_retriever=self.text_vectorstore.as_retriever(
