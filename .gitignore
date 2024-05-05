@@ -1,4 +1,5 @@
 .venv
+.venv-cohere-rag
 **/__pycache__
 **/config.yaml
 **/config.py
