@@ -6,6 +6,7 @@ from langchain_cohere import CohereEmbeddings
 from langchain.vectorstores.deeplake import DeepLake
 from langchain_cohere import ChatCohere
 from langchain.memory.chat_message_histories.sql import SQLChatMessageHistory
+from langchain.memory.chat_message_histories.mongodb import MongoDBChatMessageHistory
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
 from langchain.prompts import PromptTemplate
@@ -41,9 +42,16 @@ class QnA:
         self.init_vectorstore()
 
         memory_key = "chat_history"
-        history = SQLChatMessageHistory(
+        # history = SQLChatMessageHistory(
+        #     session_id=session_id,
+        #     connection_string="sqlite:///memory.db",
+        # )
+
+        history = MongoDBChatMessageHistory(
             session_id=session_id,
-            connection_string="sqlite:///memory.db",
+            connection_string=cfg.MONGO_URI,
+            database_name="cohere_chat_history",
+            collection_name="chat_histories"
         )
 
         PROMPT = PromptTemplate(
