@@ -6,3 +6,5 @@
 data
 deeplake_vstore
 memory.db
+.replit
+replit.nix
