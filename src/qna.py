@@ -14,6 +14,7 @@ from langchain.chains.conversational_retrieval.base import ConversationalRetriev
 from langchain.prompts import PromptTemplate
 from langchain.retrievers import ContextualCompressionRetriever
 from langchain_cohere import CohereRerank
+from langchain.callbacks import StreamingStdOutCallbackHandler
 
 
 class QnA:
@@ -26,6 +27,7 @@ class QnA:
             model=cfg.COHERE_MODEL_NAME,
             cohere_api_key=cfg.API_KEY,
             temperature=constant.TEMPERATURE,
+            streaming=True,
         )
         self.cohere_rerank = CohereRerank(
             cohere_api_key=cfg.API_KEY,
@@ -37,11 +39,12 @@ class QnA:
         self.mongo_client = MongoClient(cfg.MONGO_URI)
         self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][cfg.VECTORSTORE_COLLECTION_NAME]
 
-    def ask_question(
+    async def ask_question(
         self,
         query,
         session_id,
         verbose: bool = False,
+        callbacks=[StreamingStdOutCallbackHandler]
     ):
         start_time = time.time()
         self.init_vectorstore()
@@ -65,6 +68,7 @@ class QnA:
         )
         memory = ConversationBufferWindowMemory(
             memory_key=memory_key,
+            output_key="answer",
             input_key="question",
             chat_memory=history,
             k=2,
@@ -77,12 +81,13 @@ class QnA:
             retriever=self.text_retriever,
             verbose=verbose,
             memory=memory,
+            callbacks=callbacks,
+            return_source_documents=True,
         )
-        response = qa.invoke({"question": query})
-        result = response["answer"]
+        response = await qa.ainvoke({"question": query}, callbacks=callbacks)
         exec_time = time.time() - start_time
 
-        return result
+        return response
 
     def init_vectorstore(self):
         # self.text_vectorstore = DeepLake(
