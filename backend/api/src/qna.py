@@ -1,13 +1,10 @@
 import time
-import src.constants as constant
-import src.config as cfg
 
+from api.services.singleton import Singleton
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
-from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain_cohere import ChatCohere
-from langchain.memory.chat_message_histories.sql import SQLChatMessageHistory
 from langchain.memory.chat_message_histories.mongodb import MongoDBChatMessageHistory
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
@@ -16,26 +13,30 @@ from langchain.retrievers import ContextualCompressionRetriever
 from langchain_cohere import CohereRerank
 
 
-class QnA:
-    def __init__(self):
+class QnA(metaclass=Singleton):
+    def __init__(self, config: dict):
+        print(f"Initializing QnA Id: {self}")
+        self.config = config
         self.embeddings = CohereEmbeddings(
-            model=cfg.COHERE_EMBEDDING_MODEL_NAME,
-            cohere_api_key=cfg.API_KEY,
+            model=self.config["COHERE_EMBEDDING_MODEL_NAME"],
+            cohere_api_key=self.config["API_KEY"],
         )
         self.model = ChatCohere(
-            model=cfg.COHERE_MODEL_NAME,
-            cohere_api_key=cfg.API_KEY,
-            temperature=constant.TEMPERATURE,
+            model=self.config["COHERE_MODEL_NAME"],
+            cohere_api_key=self.config["API_KEY"],
+            temperature=self.config["TEMPERATURE"],
         )
         self.cohere_rerank = CohereRerank(
-            cohere_api_key=cfg.API_KEY,
-            model=cfg.COHERE_RERANK_MODEL_NAME,
+            cohere_api_key=self.config["API_KEY"],
+            model=self.config["COHERE_RERANK_MODEL_NAME"],
         )
         self.text_vectorstore = None
         self.text_retriever = None
 
-        self.mongo_client = MongoClient(cfg.MONGO_URI)
-        self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][cfg.VECTORSTORE_COLLECTION_NAME]
+        self.mongo_client = MongoClient(self.config["MONGO_URI"])
+        self.MONGODB_COLLECTION = self.mongo_client[self.config["VECTORSTORE_DB_NAME"]][
+            self.config["VECTORSTORE_COLLECTION_NAME"]
+        ]
 
     def ask_question(
         self,
@@ -54,13 +55,13 @@ class QnA:
 
         history = MongoDBChatMessageHistory(
             session_id=session_id,
-            connection_string=cfg.MONGO_URI,
+            connection_string=self.config["MONGO_URI"],
             database_name="cohere_chat_history",
-            collection_name="chat_histories"
+            collection_name="chat_histories",
         )
 
         PROMPT = PromptTemplate(
-            template=constant.PROMPT_TEMPLATE,
+            template=self.config["PROMPT_TEMPLATE"],
             input_variables=["chat_history", "context", "question"],
         )
         memory = ConversationBufferWindowMemory(
@@ -96,7 +97,7 @@ class QnA:
         self.text_vectorstore = MongoDBAtlasVectorSearch(
             collection=self.MONGODB_COLLECTION,
             embedding=self.embeddings,
-            index_name="vector_index"
+            index_name="vector_index",
         )
 
         self.text_retriever = ContextualCompressionRetriever(
@@ -105,7 +106,7 @@ class QnA:
                 search_type="similarity",
                 search_kwargs={
                     "fetch_k": 20,
-                    "k": constant.TOP_K,
+                    "k": self.config["TOP_K"],
                 },
             ),
         )

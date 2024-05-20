@@ -1,15 +1,16 @@
 import uvicorn
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from api.utils.utils import read_config
 from api.routes import files_router, query_router, ingest_router
-
-config = read_config()
+from api.src.qna import QnA
+from api.src.ingestion import Ingestion
 
 app = FastAPI()
 app.include_router(files_router)
 app.include_router(query_router)
 app.include_router(ingest_router)
+config = read_config()
 
 
 @app.get(path="/")

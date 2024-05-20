@@ -1,26 +1,26 @@
-import time
-import src.constants as constant
-import src.config as cfg
-
+from api.services.singleton import Singleton
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
-from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain.document_loaders.pdf import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 
 
-class Ingestion:
-    def __init__(self):
+class Ingestion(metaclass=Singleton):
+    def __init__(self, config: dict):
+        print(f"Initializing Ingestion Id: {self}")
+        self.config = config
         self.text_vectorstore = None
 
         self.embeddings = CohereEmbeddings(
-            model=cfg.COHERE_EMBEDDING_MODEL_NAME,
-            cohere_api_key=cfg.API_KEY,
+            model=self.config["COHERE_EMBEDDING_MODEL_NAME"],
+            cohere_api_key=self.config["API_KEY"],
         )
 
-        self.mongo_client = MongoClient(cfg.MONGO_URI)
-        self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][cfg.VECTORSTORE_COLLECTION_NAME]
+        self.mongo_client = MongoClient(self.config["MONGO_URI"])
+        self.MONGODB_COLLECTION = self.mongo_client[self.config["VECTORSTORE_DB_NAME"]][
+            self.config["VECTORSTORE_COLLECTION_NAME"]
+        ]
 
     def create_and_add_embeddings(
         self,
@@ -34,8 +34,7 @@ class Ingestion:
         # )
 
         self.text_vectorstore = MongoDBAtlasVectorSearch(
-            collection=self.MONGODB_COLLECTION,
-            embedding=self.embeddings
+            collection=self.MONGODB_COLLECTION, embedding=self.embeddings
         )
 
         loader = PyPDFLoader(file_path=file_path)

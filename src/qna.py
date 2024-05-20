@@ -83,6 +83,7 @@ class QnA:
             memory=memory,
             callbacks=callbacks,
             return_source_documents=True,
+            chain_type="stuff"
         )
         response = await qa.ainvoke({"question": query}, callbacks=callbacks)
         exec_time = time.time() - start_time
