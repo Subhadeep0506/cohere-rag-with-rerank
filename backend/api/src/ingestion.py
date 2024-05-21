@@ -1,8 +1,10 @@
+from io import BytesIO
 from api.services.singleton import Singleton
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
+from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
-from langchain.document_loaders.pdf import PyPDFLoader
+from langchain.document_loaders.pdf import PyPDFLoader, PyMuPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 
 
@@ -24,20 +26,22 @@ class Ingestion(metaclass=Singleton):
 
     def create_and_add_embeddings(
         self,
-        file_path: str,
+        file: str,
+        debug: bool = False,
     ):
-        # self.text_vectorstore = DeepLake(
-        #     dataset_path=cfg.DEEPLAKE_VECTORSTORE,
-        #     embedding=self.embeddings,
-        #     verbose=False,
-        #     num_workers=4,
-        # )
+        if debug:
+            self.text_vectorstore = DeepLake(
+                dataset_path=self.config["DEEPLAKE_VECTORSTORE"],
+                embedding=self.embeddings,
+                verbose=False,
+                num_workers=4,
+            )
+        else:
+            self.text_vectorstore = MongoDBAtlasVectorSearch(
+                collection=self.MONGODB_COLLECTION, embedding=self.embeddings
+            )
 
-        self.text_vectorstore = MongoDBAtlasVectorSearch(
-            collection=self.MONGODB_COLLECTION, embedding=self.embeddings
-        )
-
-        loader = PyPDFLoader(file_path=file_path)
+        loader = PyPDFLoader(file_path=file)
 
         text_splitter = CharacterTextSplitter(
             separator="\n",

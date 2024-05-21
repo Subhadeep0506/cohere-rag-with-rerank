@@ -4,7 +4,6 @@ import src.config as cfg
 
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
-from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain.document_loaders.pdf import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter

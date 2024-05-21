@@ -1,6 +1,7 @@
 from pydantic import BaseModel
+from fastapi import UploadFile
 
 
 class IngestionModel(BaseModel):
-    file_bytes: str
+    file: UploadFile
     metadata: dict

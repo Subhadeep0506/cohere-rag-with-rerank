@@ -1,15 +1,20 @@
-from fastapi import APIRouter, Depends
+from typing import Annotated
+from fastapi import APIRouter, Depends, UploadFile, File, Form
 from api.src.ingestion import Ingestion
 from api.utils.utils import read_config
-from models.ingestion_model import IngestionModel
 
 router = APIRouter()
 
 
-@router.post(path="/ingest/doc_id")
+@router.post(path="/ingest")
 async def ingest_document(
-    file_bytes: IngestionModel,
+    file: Annotated[UploadFile, File()],
+    metadata: Annotated[str, Form()],
     config=Depends(lambda: read_config()),
 ):
     ingestion = Ingestion(config=config)
-    return {"doc_id": "doc_id"}
+    return {
+        "file": f"{file.file}",
+        "content": f"{file.file.read()}",
+        "metadata": metadata,
+    }

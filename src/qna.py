@@ -4,7 +4,6 @@ import src.config as cfg
 
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
-from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain_cohere import ChatCohere
 from langchain.memory.chat_message_histories.sql import SQLChatMessageHistory
@@ -37,14 +36,16 @@ class QnA:
         self.text_retriever = None
 
         self.mongo_client = MongoClient(cfg.MONGO_URI)
-        self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][cfg.VECTORSTORE_COLLECTION_NAME]
+        self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][
+            cfg.VECTORSTORE_COLLECTION_NAME
+        ]
 
     async def ask_question(
         self,
         query,
         session_id,
         verbose: bool = False,
-        callbacks=[StreamingStdOutCallbackHandler]
+        callbacks=[StreamingStdOutCallbackHandler],
     ):
         start_time = time.time()
         self.init_vectorstore()
@@ -59,7 +60,7 @@ class QnA:
             session_id=session_id,
             connection_string=cfg.MONGO_URI,
             database_name="cohere_chat_history",
-            collection_name="chat_histories"
+            collection_name="chat_histories",
         )
 
         PROMPT = PromptTemplate(
@@ -83,7 +84,7 @@ class QnA:
             memory=memory,
             callbacks=callbacks,
             return_source_documents=True,
-            chain_type="stuff"
+            chain_type="stuff",
         )
         response = await qa.ainvoke({"question": query}, callbacks=callbacks)
         exec_time = time.time() - start_time
@@ -102,7 +103,7 @@ class QnA:
         self.text_vectorstore = MongoDBAtlasVectorSearch(
             collection=self.MONGODB_COLLECTION,
             embedding=self.embeddings,
-            index_name="vector_index"
+            index_name="vector_index",
         )
 
         self.text_retriever = ContextualCompressionRetriever(

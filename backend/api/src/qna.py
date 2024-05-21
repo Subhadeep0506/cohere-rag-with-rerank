@@ -5,6 +5,8 @@ from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain_cohere import ChatCohere
+from langchain.vectorstores.deeplake import DeepLake
+from langchain.memory.chat_message_histories.sql import SQLChatMessageHistory
 from langchain.memory.chat_message_histories.mongodb import MongoDBChatMessageHistory
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
@@ -48,17 +50,19 @@ class QnA(metaclass=Singleton):
         self.init_vectorstore()
 
         memory_key = "chat_history"
-        # history = SQLChatMessageHistory(
-        #     session_id=session_id,
-        #     connection_string="sqlite:///memory.db",
-        # )
 
-        history = MongoDBChatMessageHistory(
-            session_id=session_id,
-            connection_string=self.config["MONGO_URI"],
-            database_name="cohere_chat_history",
-            collection_name="chat_histories",
-        )
+        if self.config["DEBUG"]:
+            history = SQLChatMessageHistory(
+                session_id=session_id,
+                connection_string="sqlite:///memory.db",
+            )
+        else:
+            history = MongoDBChatMessageHistory(
+                session_id=session_id,
+                connection_string=self.config["MONGO_URI"],
+                database_name="cohere_chat_history",
+                collection_name="chat_histories",
+            )
 
         PROMPT = PromptTemplate(
             template=self.config["PROMPT_TEMPLATE"],
@@ -86,19 +90,20 @@ class QnA(metaclass=Singleton):
         return result
 
     def init_vectorstore(self):
-        # self.text_vectorstore = DeepLake(
-        #     dataset_path=cfg.DEEPLAKE_VECTORSTORE,
-        #     embedding=self.embeddings,
-        #     verbose=False,
-        #     read_only=True,
-        #     num_workers=4,
-        # )
-
-        self.text_vectorstore = MongoDBAtlasVectorSearch(
-            collection=self.MONGODB_COLLECTION,
-            embedding=self.embeddings,
-            index_name="vector_index",
-        )
+        if self.config["DEBUG"]:
+            self.text_vectorstore = DeepLake(
+                dataset_path=self.config["DEEPLAKE_VECTORSTORE"],
+                embedding=self.embeddings,
+                verbose=False,
+                read_only=True,
+                num_workers=4,
+            )
+        else:
+            self.text_vectorstore = MongoDBAtlasVectorSearch(
+                collection=self.MONGODB_COLLECTION,
+                embedding=self.embeddings,
+                index_name="vector_index",
+            )
 
         self.text_retriever = ContextualCompressionRetriever(
             base_compressor=self.cohere_rerank,
