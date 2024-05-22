@@ -6,6 +6,7 @@ from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain.document_loaders.pdf import PyPDFLoader, PyMuPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
+from pypdf.errors import PdfStreamError
 
 
 class Ingestion(metaclass=Singleton):
@@ -24,31 +25,35 @@ class Ingestion(metaclass=Singleton):
             self.config["VECTORSTORE_COLLECTION_NAME"]
         ]
 
-    def create_and_add_embeddings(
+    async def create_and_add_embeddings(
         self,
         file: str,
-        debug: bool = False,
     ):
-        if debug:
-            self.text_vectorstore = DeepLake(
-                dataset_path=self.config["DEEPLAKE_VECTORSTORE"],
-                embedding=self.embeddings,
-                verbose=False,
-                num_workers=4,
+        try:
+            if self.config["DEBUG"]:
+                self.text_vectorstore = DeepLake(
+                    dataset_path=self.config["DEEPLAKE_VECTORSTORE"],
+                    embedding=self.embeddings,
+                    verbose=False,
+                    num_workers=4,
+                )
+            else:
+                self.text_vectorstore = MongoDBAtlasVectorSearch(
+                    collection=self.MONGODB_COLLECTION, embedding=self.embeddings
+                )
+
+            loader = PyPDFLoader(file_path=file)
+
+            text_splitter = CharacterTextSplitter(
+                separator="\n",
+                chunk_size=1000,
+                chunk_overlap=200,
             )
-        else:
-            self.text_vectorstore = MongoDBAtlasVectorSearch(
-                collection=self.MONGODB_COLLECTION, embedding=self.embeddings
-            )
+            pages = await loader.aload()
+            chunks = text_splitter.split_documents(pages)
 
-        loader = PyPDFLoader(file_path=file)
-
-        text_splitter = CharacterTextSplitter(
-            separator="\n",
-            chunk_size=1000,
-            chunk_overlap=200,
-        )
-        pages = loader.load()
-        chunks = text_splitter.split_documents(pages)
-
-        _ = self.text_vectorstore.add_documents(documents=chunks)
+            return await self.text_vectorstore.aadd_documents(documents=chunks)
+        except PdfStreamError as e:
+            raise Exception(e)
+        except Exception as e:
+            raise Exception(e)
