@@ -1,4 +1,5 @@
 import os
+import ast
 
 from typing import Annotated
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, status
@@ -15,14 +16,17 @@ async def ingest_document(
     metadata: Annotated[str, Form()],
     config=Depends(lambda: read_config()),
 ):
-    if file.content_type == "application/pdf":
+    if file.content_type in ["application/pdf", "text/plain"]:
         ingestion = Ingestion(config=config)
         _tempfile = f"/tmp/{file.filename}"
-
+        metadata = ast.literal_eval(metadata)
+        print(file.content_type)
         with open(_tempfile, "wb") as file_bytes:
             file_bytes.write(file.file.read())
 
-        _ = await ingestion.create_and_add_embeddings(file=_tempfile)
+        _ = await ingestion.create_and_add_embeddings(
+            file=_tempfile, metadata=metadata, file_type=file.content_type
+        )
 
         if os.path.exists(_tempfile):
             os.remove(_tempfile)

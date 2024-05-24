@@ -6,7 +6,7 @@ from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain.document_loaders.pdf import PyPDFLoader, PyMuPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
-from pypdf.errors import PdfStreamError
+from api.src.doc_loaders import PDFLoader, TxtLoader
 
 
 class Ingestion(metaclass=Singleton):
@@ -26,8 +26,7 @@ class Ingestion(metaclass=Singleton):
         ]
 
     async def create_and_add_embeddings(
-        self,
-        file: str,
+        self, file: str, metadata: dict, file_type: str
     ):
         try:
             if self.config["DEBUG"]:
@@ -42,18 +41,19 @@ class Ingestion(metaclass=Singleton):
                     collection=self.MONGODB_COLLECTION, embedding=self.embeddings
                 )
 
-            loader = PyPDFLoader(file_path=file)
-
-            text_splitter = CharacterTextSplitter(
-                separator="\n",
-                chunk_size=1000,
-                chunk_overlap=200,
-            )
-            pages = await loader.aload()
-            chunks = text_splitter.split_documents(pages)
-
+            if file_type == "application/pdf":
+                loader = PDFLoader(
+                    file_path=file,
+                    metadata=metadata,
+                    config=self.config,
+                )
+            elif file_type == "text/plain":
+                loader = TxtLoader(
+                    file_path=file,
+                    metadata=metadata,
+                    config=self.config,
+                )
+            chunks = await loader.load_document()
             return await self.text_vectorstore.aadd_documents(documents=chunks)
-        except PdfStreamError as e:
-            raise Exception(e)
         except Exception as e:
             raise Exception(e)

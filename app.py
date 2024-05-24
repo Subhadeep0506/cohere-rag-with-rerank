@@ -44,9 +44,7 @@ def main():
         st.session_state[MESSAGES].append(Message(actor=USER, payload=prompt))
         st.chat_message(USER).write(prompt)
         with st.spinner(text="Thinking..."):
-            response = qna.ask_question(
-                query=prompt, session_id="AWDAA-adawd-ADAFAEF"
-            )
+            response = qna.ask_question(query=prompt, session_id="AWDAA-adawd-ADAFAEF")
 
         st.session_state[MESSAGES].append(Message(actor=ASSISTANT, payload=response))
         st.chat_message(ASSISTANT).write(response)

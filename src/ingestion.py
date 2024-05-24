@@ -19,7 +19,9 @@ class Ingestion:
         )
 
         self.mongo_client = MongoClient(cfg.MONGO_URI)
-        self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][cfg.VECTORSTORE_COLLECTION_NAME]
+        self.MONGODB_COLLECTION = self.mongo_client[cfg.VECTORSTORE_DB_NAME][
+            cfg.VECTORSTORE_COLLECTION_NAME
+        ]
 
     def create_and_add_embeddings(
         self,
@@ -33,8 +35,7 @@ class Ingestion:
         # )
 
         self.text_vectorstore = MongoDBAtlasVectorSearch(
-            collection=self.MONGODB_COLLECTION,
-            embedding=self.embeddings
+            collection=self.MONGODB_COLLECTION, embedding=self.embeddings
         )
 
         loader = PyPDFLoader(file_path=file_path)

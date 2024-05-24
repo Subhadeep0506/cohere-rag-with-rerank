@@ -5,6 +5,7 @@ import src.config as cfg
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
 from langchain_mongodb import MongoDBAtlasVectorSearch
+from langchain.vectorstores.deeplake import DeepLake
 from langchain_cohere import ChatCohere
 from langchain.memory.chat_message_histories.sql import SQLChatMessageHistory
 from langchain.memory.chat_message_histories.mongodb import MongoDBChatMessageHistory
@@ -40,28 +41,27 @@ class QnA:
             cfg.VECTORSTORE_COLLECTION_NAME
         ]
 
-    async def ask_question(
+    def ask_question(
         self,
         query,
         session_id,
         verbose: bool = False,
-        callbacks=[StreamingStdOutCallbackHandler],
     ):
         start_time = time.time()
         self.init_vectorstore()
 
         memory_key = "chat_history"
-        # history = SQLChatMessageHistory(
-        #     session_id=session_id,
-        #     connection_string="sqlite:///memory.db",
-        # )
-
-        history = MongoDBChatMessageHistory(
+        history = SQLChatMessageHistory(
             session_id=session_id,
-            connection_string=cfg.MONGO_URI,
-            database_name="cohere_chat_history",
-            collection_name="chat_histories",
+            connection_string="sqlite:///memory.db",
         )
+
+        # history = MongoDBChatMessageHistory(
+        #     session_id=session_id,
+        #     connection_string=cfg.MONGO_URI,
+        #     database_name="cohere_chat_history",
+        #     collection_name="chat_histories",
+        # )
 
         PROMPT = PromptTemplate(
             template=constant.PROMPT_TEMPLATE,
@@ -82,29 +82,28 @@ class QnA:
             retriever=self.text_retriever,
             verbose=verbose,
             memory=memory,
-            callbacks=callbacks,
             return_source_documents=True,
             chain_type="stuff",
         )
-        response = await qa.ainvoke({"question": query}, callbacks=callbacks)
+        response = qa.invoke({"question": query})
         exec_time = time.time() - start_time
 
-        return response
+        return response["answer"]
 
     def init_vectorstore(self):
-        # self.text_vectorstore = DeepLake(
-        #     dataset_path=cfg.DEEPLAKE_VECTORSTORE,
-        #     embedding=self.embeddings,
-        #     verbose=False,
-        #     read_only=True,
-        #     num_workers=4,
-        # )
-
-        self.text_vectorstore = MongoDBAtlasVectorSearch(
-            collection=self.MONGODB_COLLECTION,
+        self.text_vectorstore = DeepLake(
+            dataset_path=cfg.DEEPLAKE_VECTORSTORE,
             embedding=self.embeddings,
-            index_name="vector_index",
+            verbose=False,
+            read_only=True,
+            num_workers=4,
         )
+
+        # self.text_vectorstore = MongoDBAtlasVectorSearch(
+        #     collection=self.MONGODB_COLLECTION,
+        #     embedding=self.embeddings,
+        #     index_name="vector_index",
+        # )
 
         self.text_retriever = ContextualCompressionRetriever(
             base_compressor=self.cohere_rerank,
