@@ -17,7 +17,6 @@ from langchain_cohere import CohereRerank
 
 class QnA(metaclass=Singleton):
     def __init__(self, config: dict):
-        print(f"Initializing QnA Id: {self}")
         self.config = config
         self.embeddings = CohereEmbeddings(
             model=self.config["COHERE_EMBEDDING_MODEL_NAME"],

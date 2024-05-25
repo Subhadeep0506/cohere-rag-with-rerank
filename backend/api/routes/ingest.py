@@ -5,7 +5,6 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, status
 from api.src.ingestion import Ingestion
 from api.utils.utils import read_config
-from pypdf.errors import PdfStreamError
 
 router = APIRouter()
 
@@ -24,7 +23,7 @@ async def ingest_document(
         with open(_tempfile, "wb") as file_bytes:
             file_bytes.write(file.file.read())
 
-        _ = await ingestion.create_and_add_embeddings(
+        _, file_upload_info = await ingestion.create_and_add_embeddings(
             file=_tempfile, metadata=metadata, file_type=file.content_type
         )
 
@@ -34,6 +33,7 @@ async def ingest_document(
             "message": "Ingested successfully!",
             "metadata": metadata,
             "file_type": file.content_type,
+            "file_upload_info": file_upload_info,
         }
     else:
         raise HTTPException(
