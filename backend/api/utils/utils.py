@@ -11,7 +11,7 @@ def read_config() -> dict[str : str | dict[str:str]]:
     """
     config = None
     print("Loading config")
-    with open("backend/config/config.yaml") as file:
+    with open("config/config.yaml") as file:
         config = yaml.safe_load(file)
 
     return config

@@ -24,23 +24,23 @@ class Ingestion(metaclass=Singleton):
         Raises:
             Exception: An exception is raised if there is an error initializing the text vectorstore.
         """
-        self.config = config
-        self.text_vectorstore = None
-
-        self.embeddings = CohereEmbeddings(
-            model=self.config["COHERE_EMBEDDING_MODEL_NAME"],
-            cohere_api_key=self.config["API_KEY"],
-        )
-
-        self.mongo_client = MongoClient(self.config["MONGO_URI"])
-        self.MONGODB_VECTORSTORE_COLLECTION = self.mongo_client[
-            self.config["MONGO_VECTORSTORE_DB_NAME"]
-        ][self.config["MONGO_VECTORSTORE_COLLECTION_NAME"]]
-        self.MONGODB_FILES_METADATA_COLLECTION = self.mongo_client[
-            self.config["MONGO_VECTORSTORE_DB_NAME"]
-        ][self.config["MONGO_FILES_METADATA_COLLECTION_NAME"]]
-
         try:
+            self.config = config
+            self.text_vectorstore = None
+
+            self.embeddings = CohereEmbeddings(
+                model=self.config["COHERE_EMBEDDING_MODEL_NAME"],
+                cohere_api_key=self.config["API_KEY"],
+            )
+
+            self.mongo_client = MongoClient(self.config["MONGO_URI"])
+            self.MONGODB_VECTORSTORE_COLLECTION = self.mongo_client[
+                self.config["MONGO_VECTORSTORE_DB_NAME"]
+            ][self.config["MONGO_VECTORSTORE_COLLECTION_NAME"]]
+            self.MONGODB_FILES_METADATA_COLLECTION = self.mongo_client[
+                self.config["MONGO_VECTORSTORE_DB_NAME"]
+            ][self.config["MONGO_FILES_METADATA_COLLECTION_NAME"]]
+
             if self.config["DEBUG"]:
                 self.text_vectorstore = DeepLake(
                     dataset_path=self.config["DEEPLAKE_VECTORSTORE"],
@@ -53,8 +53,10 @@ class Ingestion(metaclass=Singleton):
                     collection=self.MONGODB_VECTORSTORE_COLLECTION,
                     embedding=self.embeddings,
                 )
+        except KeyError as e:
+            raise ValueError(f"Config is missing a required key. ERROR: {e}")
         except Exception as e:
-            raise Exception(e)
+            raise RuntimeError(f"Failed to initialize QnA system. ERROR: {e}")
 
     def _add_file_info(self, file_info: dict):
         """
@@ -82,8 +84,8 @@ class Ingestion(metaclass=Singleton):
                 "inserted_id": str(result.inserted_id),
                 "acknowledged": result.acknowledged,
             }
-        except Exception as e:
-            raise Exception(e)
+        except (ValueError, RuntimeError, KeyError, TypeError) as e:
+            raise Exception(f"ERROR: {e}")
 
     async def create_and_add_embeddings(
         self, file: str, metadata: dict, file_type: str
@@ -130,8 +132,8 @@ class Ingestion(metaclass=Singleton):
                 await self.text_vectorstore.aadd_documents(documents=chunks),
                 file_info_upload_result,
             )
-        except Exception as e:
-            raise Exception(e)
+        except (ValueError, RuntimeError, KeyError, TypeError) as e:
+            raise Exception(f"ERROR: {e}")
 
     def delete_from_vectorstore(self, filter: dict):
         """
@@ -155,12 +157,13 @@ class Ingestion(metaclass=Singleton):
                 return {"deleted": result}
             else:
                 result = self.text_vectorstore._collection.delete_many(filter=filter)
+                _ = self.MONGODB_FILES_METADATA_COLLECTION.delete_one(filter=filter)
                 return {
                     "deleted_count": result.deleted_count,
                     "acknowledged": result.acknowledged,
                 }
-        except Exception as e:
-            raise Exception(e)
+        except (ValueError, RuntimeError, KeyError, TypeError) as e:
+            raise Exception(f"ERROR: {e}")
 
     def list_documents_from_vectorstore(self):
         """
@@ -187,5 +190,5 @@ class Ingestion(metaclass=Singleton):
                     item["_id"] = str(item["_id"])
                     files_list.append(item)
                 return {"files": files_list}
-        except Exception as e:
-            raise Exception(e)
+        except (ValueError, RuntimeError, KeyError, TypeError) as e:
+            raise Exception(f"ERROR: {e}")

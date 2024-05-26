@@ -15,6 +15,7 @@ from langchain.prompts import PromptTemplate
 from langchain.retrievers import ContextualCompressionRetriever
 from langchain_cohere import CohereRerank
 from langchain.schema import Document
+from langchain_core.callbacks import CallbackManagerForRetrieverRun
 
 
 class QnA(metaclass=Singleton):
@@ -45,16 +46,18 @@ class QnA(metaclass=Singleton):
 
             self.mongo_client = MongoClient(self.config["MONGO_URI"])
             self.MONGODB_COLLECTION = self.mongo_client[
-                self.config["VECTORSTORE_DB_NAME"]
-            ][self.config["VECTORSTORE_COLLECTION_NAME"]]
+                self.config["MONGO_VECTORSTORE_DB_NAME"]
+            ][self.config["MONGO_VECTORSTORE_COLLECTION_NAME"]]
+
         except KeyError as e:
-            raise ValueError("Config is missing a required key") from e
+            raise ValueError(f"Config is missing a required key. ERROR: {e}")
         except Exception as e:
-            raise RuntimeError("Failed to initialize QnA system") from e
+            raise RuntimeError(f"Failed to initialize QnA system. ERROR: {e}")
 
     def ask_question(
         self,
         query,
+        filters,
         session_id,
         verbose: bool = False,
     ) -> Tuple[str, List[Document]]:
@@ -95,6 +98,7 @@ class QnA(metaclass=Singleton):
             memory = ConversationBufferWindowMemory(
                 memory_key=memory_key,
                 input_key="question",
+                output_key="answer",
                 chat_memory=history,
                 k=2,
                 return_messages=True,
@@ -107,15 +111,23 @@ class QnA(metaclass=Singleton):
                 verbose=verbose,
                 memory=memory,
                 return_source_documents=True,
+                chain_type="stuff",
             )
             response = qa.invoke({"question": query})
-            result = response["answer"]
-            source_documents = response["source_documents"]
+            result, source_documents = response["answer"], response["source_documents"]
             exec_time = time.time() - start_time
 
+            _temp = []
+            for doc in source_documents:
+                _metadata = {k: v for k, v in doc.metadata.items() if k != "_id"}
+                _temp.append(
+                    Document(page_content=doc.page_content, metadata=_metadata)
+                )
+            source_documents = _temp.copy()
+            del _temp
             return result, source_documents
         except Exception as e:
-            raise RuntimeError("Failed to ask question!") from e
+            raise RuntimeError(f"Failed to ask question! ERROR: {e}")
 
     def init_vectorstore(self):
         """
@@ -142,10 +154,10 @@ class QnA(metaclass=Singleton):
                 base_retriever=self.text_vectorstore.as_retriever(
                     search_type="similarity",
                     search_kwargs={
-                        "fetch_k": 20,
+                        "fetch_k": 25,
                         "k": self.config["TOP_K"],
                     },
                 ),
             )
         except Exception as e:
-            raise RuntimeError("Failed to initialize vector store") from e
+            raise RuntimeError(f"Failed to initialize vector store. ERROR: {e}")

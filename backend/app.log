@@ -1,0 +1,7 @@
+2024-05-26 15:46:17,042 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
+INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x71985f6344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66530bf94d36e6ebca3311bf, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66530bf94d36e6ebca3311bf"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"

@@ -1,6 +1,7 @@
 import os
 import ast
 
+from api.utils.logger import logger
 from typing import Annotated
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, status
 from api.src.ingestion import Ingestion
@@ -29,6 +30,7 @@ async def ingest_document(
                     file=_tempfile, metadata=metadata, file_type=file.content_type
                 )
             except Exception as e:
+                logger.error(f"Failed to ingest document. ERROR: {e}")
                 raise HTTPException(
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                     detail="Failed to ingest document.",
@@ -44,6 +46,7 @@ async def ingest_document(
             if os.path.exists(_tempfile):
                 os.remove(_tempfile)
     else:
+        logger.error(f"User uploaded document other than PDFs and txt.")
         raise HTTPException(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,
             detail="Documents other than PDFs and txt are currently not supported yet.",

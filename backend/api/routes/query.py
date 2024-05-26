@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from models.query_model import QueryModel
 from api.utils.utils import read_config
+from api.utils.logger import logger
 from api.src.qna import QnA
 
 router = APIRouter()
@@ -15,7 +16,8 @@ async def run_query(
         qna = QnA(config=config)
         response, source_documents = qna.ask_question(
             query=query.query,
-            session_id="",
+            session_id=query.session_id,
+            filters=query.filters,
             verbose=False,
         )
         return {
@@ -24,11 +26,13 @@ async def run_query(
             "source_documents": source_documents,
         }
     except ValueError as e:
+        logger.error(f"Invalid query. ERROR: {e}")
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Invalid query",
         ) from e
     except Exception as e:
+        logger.error(f"Invalid query. ERROR: {e}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to process query",
