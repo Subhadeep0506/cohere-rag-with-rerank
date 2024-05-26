@@ -20,23 +20,31 @@ async def ingest_document(
         _tempfile = f"/tmp/{file.filename}"
         metadata = ast.literal_eval(metadata)
         print(file.content_type)
-        with open(_tempfile, "wb") as file_bytes:
-            file_bytes.write(file.file.read())
+        try:
+            with open(_tempfile, "wb") as file_bytes:
+                file_bytes.write(file.file.read())
 
-        _, file_upload_info = await ingestion.create_and_add_embeddings(
-            file=_tempfile, metadata=metadata, file_type=file.content_type
-        )
+            try:
+                _, file_upload_info = await ingestion.create_and_add_embeddings(
+                    file=_tempfile, metadata=metadata, file_type=file.content_type
+                )
+            except Exception as e:
+                raise HTTPException(
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    detail="Failed to ingest document.",
+                ) from e
 
-        if os.path.exists(_tempfile):
-            os.remove(_tempfile)
-        return {
-            "message": "Ingested successfully!",
-            "metadata": metadata,
-            "file_type": file.content_type,
-            "file_upload_info": file_upload_info,
-        }
+            return {
+                "message": "Ingested successfully!",
+                "metadata": metadata,
+                "file_type": file.content_type,
+                "file_upload_info": file_upload_info,
+            }
+        finally:
+            if os.path.exists(_tempfile):
+                os.remove(_tempfile)
     else:
         raise HTTPException(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,
-            detail="Documents other than PDFs are currently not suppoted yet.",
+            detail="Documents other than PDFs and txt are currently not supported yet.",
         )

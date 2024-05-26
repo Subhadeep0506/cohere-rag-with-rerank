@@ -28,6 +28,12 @@ def delete_file_from_store(
 def list_vectorstore_files(
     config=Depends(lambda: read_config()),
 ):
-    ingestion = Ingestion(config=config)
-    result = ingestion.list_documents_from_vectorstore()
-    return result
+    try:
+        ingestion = Ingestion(config=config)
+        result = ingestion.list_documents_from_vectorstore()
+        return result
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to list files",
+        ) from e
