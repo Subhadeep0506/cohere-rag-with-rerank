@@ -5,3 +5,9 @@ INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
 INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
 INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
 INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-26 18:12:15,290 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
+INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
+2024-05-26 18:19:07,164 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
+INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
+2024-05-26 18:20:04,211 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
+INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
