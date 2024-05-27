@@ -56,9 +56,9 @@ class QnA(metaclass=Singleton):
 
     def ask_question(
         self,
-        query,
-        filters,
-        session_id,
+        query: str,
+        filters: dict,
+        session_id: str,
         verbose: bool = False,
     ) -> Tuple[str, List[Document]]:
         """
@@ -74,7 +74,7 @@ class QnA(metaclass=Singleton):
         """
         start_time = time.time()
         try:
-            self.init_vectorstore()
+            self.init_vectorstore(filters=filters)
 
             memory_key = "chat_history"
 
@@ -87,8 +87,8 @@ class QnA(metaclass=Singleton):
                 history = MongoDBChatMessageHistory(
                     session_id=session_id,
                     connection_string=self.config["MONGO_URI"],
-                    database_name="cohere_chat_history",
-                    collection_name="chat_histories",
+                    database_name=self.config["MONGO_CHAT_HISTORY_DATABASE"],
+                    collection_name=self.config["MONGO_CHAT_HISTORY_COLLECTION"],
                 )
 
             PROMPT = PromptTemplate(
@@ -129,7 +129,7 @@ class QnA(metaclass=Singleton):
         except Exception as e:
             raise RuntimeError(f"Failed to ask question! ERROR: {e}")
 
-    def init_vectorstore(self):
+    def init_vectorstore(self, filters: dict):
         """
         Initialize the vector store for the QnA system.
         """
@@ -156,8 +156,44 @@ class QnA(metaclass=Singleton):
                     search_kwargs={
                         "fetch_k": 25,
                         "k": self.config["TOP_K"],
+                        "pre_filter": self.format_filter(filters),
                     },
                 ),
             )
         except Exception as e:
             raise RuntimeError(f"Failed to initialize vector store. ERROR: {e}")
+
+    def format_filter(self, filter: dict):
+        """Format filter dictionary accoding to MongoDB Atlas Vector store format:
+
+        Original:
+        ```python
+        filter = {
+            "category": "category",
+            "page": "page"
+        }
+        ```
+        Formatted:
+        ```python
+        filter = {
+            "category": {"$eq": "category"},
+            "page": {"$eq": "page"}
+        }
+        ```
+
+        Args:
+            filter (dict): Original input filter.
+        """
+        _filter = {"$and": [{k: {"$eq": v} for k, v in filter.items()}]}
+        print(_filter)
+        return _filter
+
+    def clear_chat_history(self):
+        try:
+            MONGO_CHAT_HISTORY_STORE = self.mongo_client[
+                self.config["MONGO_CHAT_HISTORY_DATABASE"]
+            ][self.config["MONGO_CHAT_HISTORY_COLLECTION"]]
+
+            MONGO_CHAT_HISTORY_STORE.drop()
+        except Exception as e:
+            raise Exception(f"Could not delete history. ERROR: {e}")

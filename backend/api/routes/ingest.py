@@ -20,7 +20,7 @@ async def ingest_document(
         ingestion = Ingestion(config=config)
         _tempfile = f"/tmp/{file.filename}"
         metadata = ast.literal_eval(metadata)
-        print(file.content_type)
+
         try:
             with open(_tempfile, "wb") as file_bytes:
                 file_bytes.write(file.file.read())

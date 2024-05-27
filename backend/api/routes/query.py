@@ -37,3 +37,16 @@ async def run_query(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to process query",
         ) from e
+
+
+@router.get("/query/delete_history")
+def delete_chat_history(
+    config=Depends(lambda: read_config()),
+):
+    try:
+        qna = QnA(config=config)
+        qna.clear_chat_history()
+        return {"message": "Chat history deleted."}
+    except Exception as e:
+        logger.exception(e)
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=e)

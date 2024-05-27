@@ -1,13 +1,269 @@
-2024-05-26 15:46:17,042 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
-INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
-INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x71985f6344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66530bf94d36e6ebca3311bf, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66530bf94d36e6ebca3311bf"}, "remainingTimeMS": 29}
+2024-05-27 17:25:44,226 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x798a29e384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654751919a175cfb15db499, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654751919a175cfb15db499"}, "remainingTimeMS": 29}
 INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
 INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
 INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
 INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
-2024-05-26 18:12:15,290 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
-INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
-2024-05-26 18:19:07,164 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
-INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
-2024-05-26 18:20:04,211 - api.utils.logger - INFO - {'message': 'FastAPI running on PORT 8908'}
-INFO:api.utils.logger:{'message': 'FastAPI running on PORT 8908'}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6654754619a175cfb15db49c, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654754619a175cfb15db49c"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x798a29e384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654765619a175cfb15db622, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654765619a175cfb15db622"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x798a29e384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665476d219a175cfb15db625, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665476d219a175cfb15db625"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x798a29e384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654772a19a175cfb15db628, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654772a19a175cfb15db628"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x798a29e384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665477c319a175cfb15db62b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665477c319a175cfb15db62b"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-27 18:09:08,154 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7bbfe5a384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66547f2cd84bcce2049f3791, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66547f2cd84bcce2049f3791"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+2024-05-27 18:10:17,924 - api.utils.logger - ERROR - Invalid query. ERROR: Failed to ask question! ERROR: PlanExecutor error during aggregation :: caused by :: Path 'sub_category' needs to be indexed as token, full error: {'ok': 0.0, 'errmsg': "PlanExecutor error during aggregation :: caused by :: Path 'sub_category' needs to be indexed as token", 'code': 8, 'codeName': 'UnknownError', '$clusterTime': {'clusterTime': Timestamp(1716813617, 11), 'signature': {'hash': b'\xa9 u\xc7\x0f6\xf1<j.\xa2\xf9{<\xdep\tN\x93\xea', 'keyId': 7308698246480658438}}, 'operationTime': Timestamp(1716813617, 11)}
+ERROR:api.utils.logger:Invalid query. ERROR: Failed to ask question! ERROR: PlanExecutor error during aggregation :: caused by :: Path 'sub_category' needs to be indexed as token, full error: {'ok': 0.0, 'errmsg': "PlanExecutor error during aggregation :: caused by :: Path 'sub_category' needs to be indexed as token", 'code': 8, 'codeName': 'UnknownError', '$clusterTime': {'clusterTime': Timestamp(1716813617, 11), 'signature': {'hash': b'\xa9 u\xc7\x0f6\xf1<j.\xa2\xf9{<\xdep\tN\x93\xea', 'keyId': 7308698246480658438}}, 'operationTime': Timestamp(1716813617, 11)}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7bbfe5a384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66547f8ad84bcce2049f3792, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66547f8ad84bcce2049f3792"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7bbfe5a384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66547facd84bcce2049f3795, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66547facd84bcce2049f3795"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7bbfe5a384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654805cd84bcce2049f3798, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654805cd84bcce2049f3798"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-27 18:22:03,544 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7f1dda3384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665481facc7898c0fceebcd2, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665481facc7898c0fceebcd2"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7f1dda3384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66548245cc7898c0fceebcd5, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66548245cc7898c0fceebcd5"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-27 18:24:24,282 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x70d46a0344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66548288a15205b05d810530, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66548288a15205b05d810530"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x70d46a0344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665482d4a15205b05d810533, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665482d4a15205b05d810533"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x70d46a0344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66548303a15205b05d810536, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66548303a15205b05d810536"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-27 18:35:47,423 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7909fc93c4a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665485321eb710b1d1ed3caa, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665485321eb710b1d1ed3caa"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-27 18:39:35,275 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7466eb7384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654861a34b803ef3a5a4d55, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654861a34b803ef3a5a4d55"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7466eb7384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654864a34b803ef3a5a4d58, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654864a34b803ef3a5a4d58"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7466eb7384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654866134b803ef3a5a4d5b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654866134b803ef3a5a4d5b"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7466eb7384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654867534b803ef3a5a4d5e, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654867534b803ef3a5a4d5e"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7466eb7384a0>", "operation": "delete", "topologyDescription": "<TopologyDescription id: 665486c234b803ef3a5a4d61, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665486c234b803ef3a5a4d61"}, "remainingTimeMS": 29}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7466eb7384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665486d734b803ef3a5a4d62, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665486d734b803ef3a5a4d62"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7466eb7384a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665486f234b803ef3a5a4d65, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665486f234b803ef3a5a4d65"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-27 18:58:24,738 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+2024-05-27 19:02:30,471 - api.utils.logger - ERROR - Failed to initialize QnA system. ERROR: The resolution lifetime expired after 21.118 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+Traceback (most recent call last):
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/src/qna.py", line 47, in __init__
+    self.mongo_client = MongoClient(self.config["MONGO_URI"])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/.venv-cohere-rag/lib/python3.11/site-packages/pymongo/mongo_client.py", line 774, in __init__
+    res = uri_parser.parse_uri(
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/.venv-cohere-rag/lib/python3.11/site-packages/pymongo/uri_parser.py", line 548, in parse_uri
+    dns_options = dns_resolver.get_options()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/.venv-cohere-rag/lib/python3.11/site-packages/pymongo/srv_resolver.py", line 90, in get_options
+    raise ConfigurationError(str(exc)) from None
+pymongo.errors.ConfigurationError: The resolution lifetime expired after 21.118 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/routes/query.py", line 47, in delete_chat_history
+    qna = QnA(config=config)
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/services/singleton.py", line 6, in __call__
+    cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/src/qna.py", line 55, in __init__
+    raise RuntimeError(f"Failed to initialize QnA system. ERROR: {e}")
+RuntimeError: Failed to initialize QnA system. ERROR: The resolution lifetime expired after 21.118 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+ERROR:api.utils.logger:Failed to initialize QnA system. ERROR: The resolution lifetime expired after 21.118 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+Traceback (most recent call last):
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/src/qna.py", line 47, in __init__
+    self.mongo_client = MongoClient(self.config["MONGO_URI"])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/.venv-cohere-rag/lib/python3.11/site-packages/pymongo/mongo_client.py", line 774, in __init__
+    res = uri_parser.parse_uri(
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/.venv-cohere-rag/lib/python3.11/site-packages/pymongo/uri_parser.py", line 548, in parse_uri
+    dns_options = dns_resolver.get_options()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/.venv-cohere-rag/lib/python3.11/site-packages/pymongo/srv_resolver.py", line 90, in get_options
+    raise ConfigurationError(str(exc)) from None
+pymongo.errors.ConfigurationError: The resolution lifetime expired after 21.118 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/routes/query.py", line 47, in delete_chat_history
+    qna = QnA(config=config)
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/services/singleton.py", line 6, in __call__
+    cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/subhadeep/Documents/PythonML/GPT/CohereRAGWithRerank/backend/api/src/qna.py", line 55, in __init__
+    raise RuntimeError(f"Failed to initialize QnA system. ERROR: {e}")
+RuntimeError: Failed to initialize QnA system. ERROR: The resolution lifetime expired after 21.118 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+2024-05-27 19:03:57,154 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x746bb64344a0>", "operation": "drop", "topologyDescription": "<TopologyDescription id: 66548bcaf4621011e3737a27, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66548bcaf4621011e3737a27"}, "remainingTimeMS": 29}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x746bb64344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66548d08f4621011e3737a28, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66548d08f4621011e3737a28"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 66548d28f4621011e3737a2b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66548d28f4621011e3737a2b"}, "remainingTimeMS": 29}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x746bb64344a0>", "operation": "insert", "topologyDescription": "<TopologyDescription id: 66548d28f4621011e3737a2b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net:27017: [Errno -2] Name or service not known (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>", "clientId": {"$oid": "66548d28f4621011e3737a2b"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+WARNING:langchain_cohere.utils:Retrying langchain_cohere.embeddings.CohereEmbeddings.embed_with_retry.<locals>._embed_with_retry in 4.0 seconds as it raised ReadTimeout: The read operation timed out.
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x746bb64344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66549384f4621011e3737d36, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66549384f4621011e3737d36"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x746bb64344a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 665493cdf4621011e3737d39, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "665493cdf4621011e3737d39"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+2024-05-27 19:46:14,677 - api.utils.logger - ERROR - Invalid query. ERROR: Failed to ask question! ERROR: The resolution lifetime expired after 21.120 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+ERROR:api.utils.logger:Invalid query. ERROR: Failed to ask question! ERROR: The resolution lifetime expired after 21.120 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+2024-05-27 20:09:05,984 - api.utils.logger - ERROR - Invalid query. ERROR: Failed to ask question! ERROR: The resolution lifetime expired after 21.121 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+ERROR:api.utils.logger:Invalid query. ERROR: Failed to ask question! ERROR: The resolution lifetime expired after 21.121 seconds: Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.; Server Do53:127.0.0.53@53 answered The DNS operation timed out.
+2024-05-27 20:09:57,688 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7e83a7b6c4a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66549b4eaf2e6cd88138ed76, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66549b4eaf2e6cd88138ed76"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 66549bbdaf2e6cd88138ed79, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66549bbdaf2e6cd88138ed79"}, "remainingTimeMS": 29}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7e83a7b6c4a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66549bdeaf2e6cd88138ed7a, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66549bdeaf2e6cd88138ed7a"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x7e83a7b6c4a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 66549c09af2e6cd88138ed7d, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "66549c09af2e6cd88138ed7d"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+2024-05-27 20:32:04,802 - api.utils.logger - INFO - FastAPI running on PORT 8908
+INFO:api.utils.logger:FastAPI running on PORT 8908
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a081ee18f877d593c3f2, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a081ee18f877d593c3f2"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a117ee18f877d593c3f5, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a117ee18f877d593c3f5"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a13cee18f877d593c3f8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a13cee18f877d593c3f8"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a1ddee18f877d593c3fb, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a1ddee18f877d593c3fb"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 6654a235ee18f877d593c3fe, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a235ee18f877d593c3fe"}, "remainingTimeMS": 29}
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a249ee18f877d593c3ff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a249ee18f877d593c3ff"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a27aee18f877d593c402, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a27aee18f877d593c402"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a2a6ee18f877d593c405, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a2a6ee18f877d593c405"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a2beee18f877d593c408, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a2beee18f877d593c408"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
+INFO:pymongo.serverSelection:{"message": "Waiting for suitable server to become available", "selector": "<function writable_server_selector at 0x717a916184a0>", "operation": "createIndexes", "topologyDescription": "<TopologyDescription id: 6654a32dee18f877d593c40b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-qyot8c4-shard-00-00.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-01.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-qyot8c4-shard-00-02.iqhj7cs.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "6654a32dee18f877d593c40b"}, "remainingTimeMS": 29}
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/embed "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/rerank "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.cohere.ai/v1/chat "HTTP/1.1 200 OK"
