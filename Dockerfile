@@ -1,6 +1,6 @@
-FROM python:3.10-slim-buster
-WORKDIR /code
-COPY ./requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+FROM python:3.10-bookworm
 COPY ./backend /code/app
-CMD ["uvicorn", "main:app", "--port", "80", "--port", "0.0.0.0"]
+COPY ./requirements.txt /code/requirements.txt
+WORKDIR /code/app
+RUN pip install -r /code/requirements.txt
+CMD ["uvicorn", "main:app", "--port", "8908", "--host", "0.0.0.0"]
