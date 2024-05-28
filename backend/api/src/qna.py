@@ -1,7 +1,6 @@
 import time
 from typing import Tuple, List
 
-from api.services.singleton import Singleton
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
 from langchain_mongodb import MongoDBAtlasVectorSearch
@@ -16,6 +15,7 @@ from langchain.retrievers import ContextualCompressionRetriever
 from langchain_cohere import CohereRerank
 from langchain.schema import Document
 from langchain_core.callbacks import CallbackManagerForRetrieverRun
+from ..services.singleton import Singleton
 
 
 class QnA(metaclass=Singleton):

@@ -2,8 +2,8 @@ import ast
 
 from typing import Annotated
 from fastapi import APIRouter, Depends, Form, HTTPException, status
-from api.src.ingestion import Ingestion
-from api.utils.utils import read_config
+from ..src.ingestion import Ingestion
+from ..utils.utils import read_config
 
 router = APIRouter()
 

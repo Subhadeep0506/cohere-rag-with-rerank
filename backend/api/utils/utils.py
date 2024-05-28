@@ -1,4 +1,5 @@
 import yaml
+import os
 from functools import lru_cache
 
 
@@ -11,7 +12,7 @@ def read_config() -> dict[str : str | dict[str:str]]:
     """
     config = None
     print("Loading config")
-    with open("config/config.yaml") as file:
+    with open(f"config/config.yaml") as file:
         config = yaml.safe_load(file)
 
     return config

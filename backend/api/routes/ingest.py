@@ -1,11 +1,11 @@
 import os
 import ast
 
-from api.utils.logger import logger
 from typing import Annotated
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, status
-from api.src.ingestion import Ingestion
-from api.utils.utils import read_config
+from ..utils.logger import logger
+from ..src.ingestion import Ingestion
+from ..utils.utils import read_config
 
 router = APIRouter()
 

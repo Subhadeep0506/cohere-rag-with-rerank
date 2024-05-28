@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from models.query_model import QueryModel
-from api.utils.utils import read_config
-from api.utils.logger import logger
-from api.src.qna import QnA
+from ..utils.utils import read_config
+from ..utils.logger import logger
+from ..src.qna import QnA
 
 router = APIRouter()
 

@@ -1,11 +1,11 @@
 import datetime
 
-from api.services.singleton import Singleton
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
 from langchain.vectorstores.deeplake import DeepLake
 from langchain_mongodb import MongoDBAtlasVectorSearch
-from api.src.doc_loaders import PDFLoader, TxtLoader
+from ..services.singleton import Singleton
+from ..src.doc_loaders import PDFLoader, TxtLoader
 
 
 class Ingestion(metaclass=Singleton):
