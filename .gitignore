@@ -9,3 +9,4 @@ memory.db
 **/app.log
 .replit
 replit.nix
+**/app.log
