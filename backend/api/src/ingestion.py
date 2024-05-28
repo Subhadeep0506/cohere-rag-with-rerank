@@ -7,7 +7,7 @@ from langchain_mongodb import MongoDBAtlasVectorSearch
 from ..services.singleton import Singleton
 from ..src.doc_loaders import PDFLoader, TxtLoader
 
-
+    
 class Ingestion(metaclass=Singleton):
     """Document Ingestion pipeline."""
 
