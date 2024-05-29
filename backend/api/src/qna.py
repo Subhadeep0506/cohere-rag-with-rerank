@@ -31,22 +31,22 @@ class QnA(metaclass=Singleton):
             self.config = config
             self.embeddings = CohereEmbeddings(
                 model=self.config["COHERE_EMBEDDING_MODEL_NAME"],
-                cohere_api_key=self.config.get("API_KEY", os.environ["API_KEY"]),
+                cohere_api_key=self.config.get("API_KEY", os.environ.get("API_KEY")),
             )
             self.model = ChatCohere(
                 model=self.config["COHERE_MODEL_NAME"],
-                cohere_api_key=self.config.get("API_KEY", os.environ["API_KEY"]),
+                cohere_api_key=self.config.get("API_KEY", os.environ.get("API_KEY")),
                 temperature=self.config["TEMPERATURE"],
             )
             self.cohere_rerank = CohereRerank(
-                cohere_api_key=self.config.get("API_KEY", os.environ["API_KEY"]),
+                cohere_api_key=self.config.get("API_KEY", os.environ.get("API_KEY")),
                 model=self.config["COHERE_RERANK_MODEL_NAME"],
             )
             self.text_vectorstore = None
             self.text_retriever = None
 
             self.mongo_client = MongoClient(
-                self.config.get("MONGO_URI", os.environ["MONGO_URI"])
+                self.config.get("MONGO_URI", os.environ.get("MONGO_URI"))
             )
             self.MONGODB_COLLECTION = self.mongo_client[
                 self.config["MONGO_VECTORSTORE_DB_NAME"]
