@@ -3,8 +3,6 @@ DEBUG: false
 HOST: localhost
 PORT: 8908
 
-MONGO_URI: mongodb+srv://user-01:pillsgap@python-mongo-01.iqhj7cs.mongodb.net/?retryWrites=true&w=majority&appName=python-mongo-01
-
 MONGO_VECTORSTORE_COLLECTION_NAME: dummy_test_store
 MONGO_VECTORSTORE_DB_NAME: vectorstores
 MONGO_FILES_METADATA_COLLECTION_NAME: files_metadata
@@ -16,7 +14,6 @@ COHERE_EMBEDDING_MODEL_NAME: embed-english-v3.0
 COHERE_MODEL_NAME: command
 COHERE_RERANK_MODEL_NAME: rerank-english-v3.0
 DEEPLAKE_VECTORSTORE: deeplake_vstore
-API_KEY: 481RrCzFPdfl0eTZWSLMApiw9TGWfjHAoK9BKerd
 
 OPENAI_EMBEDDINGS_CHUNK_SIZE: 1
 PDF_CHARSPLITTER_CHUNKSIZE: 1000
