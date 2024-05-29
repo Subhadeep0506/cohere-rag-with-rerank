@@ -1,4 +1,5 @@
 import datetime
+import os
 
 from pymongo import MongoClient
 from langchain_cohere import CohereEmbeddings
@@ -7,7 +8,7 @@ from langchain_mongodb import MongoDBAtlasVectorSearch
 from ..services.singleton import Singleton
 from ..src.doc_loaders import PDFLoader, TxtLoader
 
-    
+
 class Ingestion(metaclass=Singleton):
     """Document Ingestion pipeline."""
 
@@ -30,10 +31,12 @@ class Ingestion(metaclass=Singleton):
 
             self.embeddings = CohereEmbeddings(
                 model=self.config["COHERE_EMBEDDING_MODEL_NAME"],
-                cohere_api_key=self.config["API_KEY"],
+                cohere_api_key=self.config.get("API_KEY", os.environ("API_KEY")),
             )
 
-            self.mongo_client = MongoClient(self.config["MONGO_URI"])
+            self.mongo_client = MongoClient(
+                self.config.get("MONGO_URI", os.environ("MONGO_URI"))
+            )
             self.MONGODB_VECTORSTORE_COLLECTION = self.mongo_client[
                 self.config["MONGO_VECTORSTORE_DB_NAME"]
             ][self.config["MONGO_VECTORSTORE_COLLECTION_NAME"]]

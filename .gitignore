@@ -1,7 +1,7 @@
 .venv
 .venv-cohere-rag
 **/__pycache__
-**/config.yaml
+# **/config.yaml
 **/config.py
 data
 deeplake_vstore
@@ -10,3 +10,4 @@ memory.db
 .replit
 replit.nix
 **/app.log
+**/.secrets

@@ -1,0 +1,27 @@
+DEBUG: false
+
+HOST: localhost
+PORT: 8908
+
+MONGO_URI: mongodb+srv://user-01:pillsgap@python-mongo-01.iqhj7cs.mongodb.net/?retryWrites=true&w=majority&appName=python-mongo-01
+
+MONGO_VECTORSTORE_COLLECTION_NAME: dummy_test_store
+MONGO_VECTORSTORE_DB_NAME: vectorstores
+MONGO_FILES_METADATA_COLLECTION_NAME: files_metadata
+
+MONGO_CHAT_HISTORY_DATABASE: cohere_chat_history
+MONGO_CHAT_HISTORY_COLLECTION: chat_histories
+
+COHERE_EMBEDDING_MODEL_NAME: embed-english-v3.0
+COHERE_MODEL_NAME: command
+COHERE_RERANK_MODEL_NAME: rerank-english-v3.0
+DEEPLAKE_VECTORSTORE: deeplake_vstore
+API_KEY: 481RrCzFPdfl0eTZWSLMApiw9TGWfjHAoK9BKerd
+
+OPENAI_EMBEDDINGS_CHUNK_SIZE: 1
+PDF_CHARSPLITTER_CHUNKSIZE: 1000
+PDF_CHARSPLITTER_CHUNK_OVERLAP: 200
+TEMPERATURE: 0.3
+TOP_K: 20
+CONTEXT_THRESHOLD: 0.8
+PROMPT_TEMPLATE: "You are an intelligent chatbot that answers to users' queries. Your task is to carefully analyze users' query and answer them with atmost clarity, such that they don't need to revisit the document. You will be given relevant context to answer the user's query as well as, previous two chat histories, if available. Make sure to suggest atleast one similar question to the user that can be asked based on the retrieved context. You only have to use the Retrieval_QA tool to answer the query when the query was not asked previously. If the question asked was previously answered, make sure to use that as reponse. Make only one Retrieval_QA call to answer new query. DO NOT answer queries for which you don't have any context, or the query is not relevant to the context. Do not ask the user to provide chat histories as they are stored in the database. For queries for which you cannot answer, ask the user to rephrase or verify the query.\nChat History: {chat_history}\nContext: {context}\nQuestion: {question}\nAnswer:"
