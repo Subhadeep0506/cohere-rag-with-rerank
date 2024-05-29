@@ -31,11 +31,11 @@ class Ingestion(metaclass=Singleton):
 
             self.embeddings = CohereEmbeddings(
                 model=self.config["COHERE_EMBEDDING_MODEL_NAME"],
-                cohere_api_key=self.config.get("API_KEY", os.environ("API_KEY")),
+                cohere_api_key=self.config.get("API_KEY", os.environ["API_KEY"]),
             )
 
             self.mongo_client = MongoClient(
-                self.config.get("MONGO_URI", os.environ("MONGO_URI"))
+                self.config.get("MONGO_URI", os.environ["MONGO_URI"])
             )
             self.MONGODB_VECTORSTORE_COLLECTION = self.mongo_client[
                 self.config["MONGO_VECTORSTORE_DB_NAME"]
